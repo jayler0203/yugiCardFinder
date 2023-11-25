@@ -1,0 +1,9 @@
+@use "variables.scss";
+
+@mixin desktop{
+    @media only screen and (min-width: variables.$breakpoint-large) {
+        @content;
+      }
+
+
+}

@@ -1,0 +1,71 @@
+@use "mixins.scss";
+@use "variables.scss";
+
+.card{
+    margin: 1%;
+    background-color: variables.$azure-radiance-700;
+    display: flex;
+    padding: 7px;
+    border-radius: 1rem;
+    gap: 10px;
+    height: 23rem;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all ease-in-out 0.5s;
+    
+
+}
+.card-image img{
+    opacity: 0.9;
+
+}
+.card:hover{
+    background-color: variables.$azure-radiance-600;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.05);
+    .card-image img{
+        opacity: 1;
+    }
+
+}
+.card-title{
+    font-weight: bold;
+    font-size: variables.$fontsize-large;
+}
+.card-info{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 1rem;
+}
+.card-details{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 10px;
+
+}
+.icon{
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    
+}
+
+@include  mixins.desktop{
+    .card{
+        flex-direction: row; 
+        align-items: center;
+    }
+    .card-image img{
+        width: 15rem;
+        max-width: 15rem;
+    }
+
+    
+
+
+
+
+}
