@@ -20,19 +20,17 @@ const YuGiOhCards = ({ cards, noResults }) => {
             (card) => (
               console.log(card.type),
               (
-                <li key={card.id} className="card">
-                  <section className="card-image">
-                    <img
-                      src={card.card_images[0].image_url}
-                      alt=""
-                      id={card.id}
-                    />
-                  </section>
+                <li key={card.id} className="card" type={card.type}>
+                  <img
+                    className="card-image"
+                    src={card.card_images[0].image_url}
+                    alt=""
+                    id={card.id}
+                  />
                   <section className="card-info">
-                  <h1 className="card-title" >{card.name}</h1>
+                    <h1 className="card-title">{card.name}</h1>
                     <section className="card-details">
-                      
-
+                      <div>
                       <p>{card.type}</p>
                       <img
                         className="icon"
@@ -44,7 +42,9 @@ const YuGiOhCards = ({ cards, noResults }) => {
                         }
                         alt=""
                       />
-                      <p>{card.attribute}</p>
+                      </div>
+                      <div>
+                      <p>{card.attribute ? card.attribute.charAt(0).toUpperCase() + card.attribute.slice(1).toLowerCase() : ''}</p>
                       <img
                         className="icon"
                         src={
@@ -55,13 +55,15 @@ const YuGiOhCards = ({ cards, noResults }) => {
                         }
                         alt=""
                       />
-
+                      </div>
+                      <div>
                       <p>{card.race}</p>
                       <img
                         className="icon"
                         src={CardRace(card.frameType, card.race)}
                         alt=""
                       />
+                      </div>
                     </section>
 
                     <p>{card.desc}</p>

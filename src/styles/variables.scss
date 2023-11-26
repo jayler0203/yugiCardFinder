@@ -9,6 +9,48 @@ $azure-radiance-700: #1d64d8;
 $azure-radiance-800: #1e55af;
 $azure-radiance-900: #1e478a;
 $azure-radiance-950: #172e54;
+$normalMonster:#cda75c;
+$effectMonster:#c17742;
+$ritualMonster:#53a3ea;
+$spellCard:#58be85;
+$trapCard:#b33680;
+$synchroMonster:#e8e3e5;
+$xyzMonster:url('../assets/Fondo_monstruo_xyz.jpg')center/cover;
+$xyzPendulum:url('../assets/Fondo_monstruo_xyz.jpg')center/cover,linear-gradient(to bottom, transparent 48%,$spellCard 52%) ;
+$fusionMonster:#8b4799;
 $breakpoint-large:992px;
 $fontsize-large:1.5rem;
 
+
+// Definir el mapa de tipos y colores para cartas de Yu-Gi-Oh
+$tipos-y-colores-yugioh: (
+  "Effect Monster": $effectMonster,
+  "Flip Effect Monster": $effectMonster,
+  "Flip Tuner Effect Monster": $effectMonster,
+  "Gemini Monster": $effectMonster,
+  "Normal Monster": $normalMonster,
+  "Normal Tuner Monster": $normalMonster,
+  "Pendulum Effect Monster": linear-gradient(to bottom, $effectMonster 48%,$spellCard 52%),
+  "Pendulum Effect Ritual Monster":linear-gradient(to bottom, $ritualMonster 48%,$spellCard 52%),
+  "Pendulum Flip Effect Monster": linear-gradient(to bottom, $effectMonster 48%,$spellCard 52%),
+  "Pendulum Normal Monster": linear-gradient(to bottom, $normalMonster 50%,$spellCard 50%),
+  "Pendulum Tuner Effect Monster": linear-gradient(to bottom, $effectMonster 48%,$spellCard 52%),
+  "Ritual Effect Monster": $ritualMonster,
+  "Ritual Monster": $ritualMonster,
+  "Spell Card": $spellCard,
+  "Spirit Monster": $effectMonster,
+  "Toon Monster": $effectMonster,
+  "Trap Card":$trapCard,
+  "Tuner Monster": $effectMonster,
+  "Union Effect Monster":$effectMonster,
+  "Fusion Monster": $fusionMonster,
+  "Link Monster": url(../assets/Fondo_monstruo_de_enlace.webp),
+  "Pendulum Effect Fusion Monster": linear-gradient(to bottom, $fusionMonster 48%,$spellCard 52%),
+  "Synchro Monster": $synchroMonster,
+  "Synchro Pendulum Effect Monster": linear-gradient(to bottom, $synchroMonster 48%,$spellCard 52%),
+  "Synchro Tuner Monster": $synchroMonster,
+  "XYZ Monster":$xyzMonster,
+  "XYZ Pendulum Effect Monster":$xyzPendulum,
+  "Skill Card": #999999,
+  "Token": #cccccc
+);

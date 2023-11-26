@@ -1,4 +1,7 @@
 @use "variables.scss";
+*{
+    color: black;
+}
 body{
-    background-color: variables.$azure-radiance-800;
+    background: url(../assets/yu_gi_oh__legacy_of_the_duelist_vgs.jpg);
 }
