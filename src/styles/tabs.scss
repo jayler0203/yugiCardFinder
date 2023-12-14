@@ -1,0 +1,193 @@
+@use "variables.scss";
+@use "mixins.scss";
+
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+  
+    &__tab-list {
+      border-bottom: 1px solid #aaa;
+      margin: 0 0 10px;
+      padding: 0;
+    }
+  
+    &__tab {
+      display: inline-block;
+      border: 1px solid transparent;
+      border-bottom: none;
+      bottom: -1px;
+      position: relative;
+      list-style: none;
+      padding: 6px 12px;
+      cursor: pointer;
+  
+      &--selected {
+        background: #fff;
+        border-color: #aaa;
+        color: black;
+        border-radius: 5px 5px 0 0;
+      }
+  
+      &--disabled {
+        color: GrayText;
+        cursor: default;
+      }
+  
+      &:focus {
+        outline: none;
+  
+        &:after {
+          content: "";
+          position: absolute;
+          height: 5px;
+          left: -4px;
+          right: -4px;
+          bottom: -5px;
+          background: #fff;
+        }
+      }
+    }
+  
+    &__tab-panel {
+      display: none;
+  
+      &--selected {
+        display: block;
+      }
+      
+    }
+  }
+  .search-panel{
+    width: 90%;
+    margin: 0px auto;
+  }
+  tab-list{
+    padding: 0px
+  }
+  .tab{
+    width: 33.3%;
+    padding: 1rem;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 1rem 1rem 0 0;
+    background: variables.$azure-radiance-300;
+    &-trap{
+        background-color: $trapCard;
+    }
+    &-spell{
+        background-color: $spellCard;
+    }
+    &-monster{
+        background-color: $effectMonster;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        bottom: -5px;
+        background: $azure-radiance-300;
+      }
+    
+  }
+  .tab-selected{
+    border-radius: 1rem 1rem 0 0;
+    background-color: $azure-radiance-500;
+    padding: 1rem;
+    text-align: center;
+    &:focus {
+        outline: none;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        bottom: -5px;
+        background: $azure-radiance-500;
+      }
+    &-trap{
+        background-color: $trapCard;
+    }
+    &-spell{
+        background-color: $spellCard;
+    }
+    &-monster{
+        background-color: $effectMonster;
+    }
+
+  }
+  .tab-panel-selected {
+    display: flex !important;
+    flex-direction: column;
+    padding: 2rem;
+    background-color:$azure-radiance-500;
+    gap: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    margin-bottom: 2rem;
+    
+    > *{     flex-grow: 1;
+    }
+    &-trap{
+        background-color: $trapCard;
+        button{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            background-color: $trapCard;
+            border:2px solid black;
+            border-radius: 1.5rem;
+            color: black;
+            &:hover{
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+    &-spell{
+        background-color: $spellCard;
+        button{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            background-color: $spellCard;
+            border:2px solid black;
+            border-radius: 1.5rem;
+            color: black;
+            &:hover{
+                background-color: black;
+                color: white;
+            }
+        }
+
+    }
+    &-monster{
+        background-color: $effectMonster;
+    }
+  }
+
+  .filter{
+    margin:0 1rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .select-filter ,.search-input{
+    background-color: variables.$azure-radiance-100;
+  }
+  @include mixins.desktop{
+    .tab-panel-selected {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+  }
+

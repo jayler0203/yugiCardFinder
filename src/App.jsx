@@ -12,6 +12,7 @@ const App = () => {
   const [filterArchetype, setFilterArchetype] = useState("");
   const [level, setLevel] = useState("");
   const [atribute, setAtribute] = useState("");
+  const [race ,setRace] = useState("")
   const [archetypeOptions, setArchetypeOptions] = useState([]);
   const [cards, setCards] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -40,12 +41,13 @@ const App = () => {
 
         // Si hay una búsqueda, actualiza la URL con el término de búsqueda
         if (
-          searchQuery ||
+          searchQuery !== "" ||
           filterArchetype !== "" ||
           level !== "" ||
-          atribute !== ""
+          atribute !== "" ||
+          race!== ""
         ) {
-          apiUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=200&offset=0fname=${searchQuery}`;
+          apiUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=200&offset=0&fname=${searchQuery}`;
           if (filterArchetype !== "") {
             apiUrl += `&archetype=${filterArchetype}`;
           }
@@ -54,6 +56,10 @@ const App = () => {
           }
           if (atribute !== "") {
             apiUrl += `&attribute=${atribute}`;
+          }
+          if(race !== ""){
+            console.log(race)
+            apiUrl += `&race=${race}`;
           }
         }
         console.log(apiUrl);
@@ -73,7 +79,7 @@ const App = () => {
     };
 
     fetchYuGiOhCards();
-  }, [searchQuery, filterArchetype, level, atribute]);
+  }, [searchQuery, filterArchetype, level, atribute,race]);
   const indexOfLastCharacter = currentPage * cardsPerPage;
   const indexOfFirstCharacter = indexOfLastCharacter - cardsPerPage;
   const currentCard = cards.slice(indexOfFirstCharacter, indexOfLastCharacter);
@@ -81,9 +87,12 @@ const App = () => {
   return (
     <div>
       <Navbar />
+      <section className="search-panel">
       <Search setSearchTerm={setSearchQuery} />
-      <MenuTabs setLevel={setLevel} setAtribute={setAtribute}></MenuTabs>
-      <Filter setFilter={setFilterArchetype} options={archetypeOptions} />
+      <MenuTabs setLevel={setLevel} setAtribute={setAtribute} setRace={setRace} setSearchTerm={setSearchQuery}></MenuTabs>
+     {/* <Filter setFilter={setFilterArchetype} options={archetypeOptions} /> */}
+      </section>
+
       <>
         <YuGiOhCards noResults={noResults} cards={currentCard} />
         <Pagination

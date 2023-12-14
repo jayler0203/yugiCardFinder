@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../assets/attribute/DARK.png";
+import MonsterCardDetails from "./MonsterCardDetails";
+import SpellTrapCardDetails from "./SpellTrapCardDetails";
 const YuGiOhCards = ({ cards, noResults }) => {
   function CardRace(frameType, race) {
     if (frameType === "spell" || frameType === "trap") {
@@ -18,7 +19,7 @@ const YuGiOhCards = ({ cards, noResults }) => {
         <ul className="card-list">
           {cards.map(
             (card) => (
-              console.log(card.type),
+              console.log(card.frameType),
               (
                 <li key={card.id} className="card" type={card.type}>
                   <img
@@ -29,43 +30,11 @@ const YuGiOhCards = ({ cards, noResults }) => {
                   />
                   <section className="card-info">
                     <h1 className="card-title">{card.name}</h1>
-                    <section className="card-details">
-                      <div>
-                      <p>{card.type}</p>
-                      <img
-                        className="icon"
-                        src={
-                          new URL(
-                            `../assets/type_of_card/${card.type}.jpg`,
-                            import.meta.url
-                          ).href
-                        }
-                        alt=""
-                      />
-                      </div>
-                      <div>
-                      <p>{card.attribute ? card.attribute.charAt(0).toUpperCase() + card.attribute.slice(1).toLowerCase() : ''}</p>
-                      <img
-                        className="icon"
-                        src={
-                          new URL(
-                            `../assets/attribute/${card.attribute}.png`,
-                            import.meta.url
-                          ).href
-                        }
-                        alt=""
-                      />
-                      </div>
-                      <div>
-                      <p>{card.race}</p>
-                      <img
-                        className="icon"
-                        src={CardRace(card.frameType, card.race)}
-                        alt=""
-                      />
-                      </div>
-                    </section>
-
+                    {card.frameType !== "spell" && card.frameType !== "trap" ? (
+                    <MonsterCardDetails card={card} />
+                  ) : (
+                    <SpellTrapCardDetails card={card} />
+                  )}
                     <p>{card.desc}</p>
                   </section>
                 </li>

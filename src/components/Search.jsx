@@ -3,12 +3,16 @@ import React from 'react';
 
 const Search = ({ setSearchTerm }) => {
   return (
-    <div>
+    <div className='search'>
       <input
-        type="text"
-        placeholder="Search characters"
+        type="search"
+        placeholder="Search cards by name"
+        id='search-input'
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <button className='search-button'><span className="material-symbols-outlined">
+search
+</span></button>
     </div>
   );
 };

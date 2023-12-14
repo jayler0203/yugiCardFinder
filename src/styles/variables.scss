@@ -21,6 +21,14 @@ $fusionMonster:#8b4799;
 $breakpoint-large:992px;
 $fontsize-large:1.5rem;
 
+// modificadores de las variables de pico.css
+$primary-600:$azure-radiance-800;
+$primary-700:$azure-radiance-700;
+$enable-responsive-spacings: false !default ;
+$enable-responsive-typography: false !default;
+@import "@picocss/pico/scss/pico";
+
+
 
 // Definir el mapa de tipos y colores para cartas de Yu-Gi-Oh
 $tipos-y-colores-yugioh: (

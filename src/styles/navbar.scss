@@ -1,0 +1,21 @@
+@use "variables.scss";
+.header-nav{
+    background-color:$azure-radiance-200;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    border-bottom: 2px solid $azure-radiance-100;
+    h2{
+        font-weight: bold;
+       font-size: 1rem;
+    }
+    a{
+        transition: border-bottom 0.3s ease-in-out;
+        border-bottom: 5px solid transparent; 
+    }
+    a:hover{
+        border-bottom: 5px solid $azure-radiance-200; 
+    }
+
+}
+
