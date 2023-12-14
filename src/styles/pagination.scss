@@ -1,0 +1,14 @@
+@use "mixins.scss";
+.pagination{
+    justify-content: center;
+    ul{
+        gap: 1rem;
+    }
+    ul li{
+        @include mixins.desktop{
+            font-size: 20px;
+        }
+
+    }
+
+}

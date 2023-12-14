@@ -9,8 +9,8 @@ const Pagination = ({ charactersPerPage, totalCharacters, currentPage, setCurren
   }
 
   return (
-    <nav>
-      <ul className="pagination">
+    <nav className="pagination">
+      <ul >
         {pageNumbers.map((number) => (
           <li key={number} className={currentPage === number ? 'active' : ''}>
             <a onClick={() => setCurrentPage(number)} href="#!">
